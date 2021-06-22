@@ -52,10 +52,12 @@ export default function Sidebar() {
                 <AttachMoney className="sidebarIcon" />
                 Inventory
               </li>
-              <li className="sidebarListItem">
-                <BarChart className="sidebarIcon" />
-                Reports
-              </li>
+              <Link to="/newUser" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  NewUser
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="sidebarMenu">
