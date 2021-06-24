@@ -31,16 +31,16 @@ export default function Sidebar() {
               </Link>
               <li className="sidebarListItem">
                 <Timeline className="sidebarIcon" />
-                Analytics
+                Store
               </li>
               <li className="sidebarListItem">
                 <TrendingUp className="sidebarIcon" />
-                Attandance
+                Product
               </li>
             </ul>
           </div>
           <div className="sidebarMenu">
-            <h3 className="sidebarTitle">Quick Menu</h3>
+            <h3 className="sidebarTitle">User</h3>
             <ul className="sidebarList">
               <Link to="/users" className="link">
                 <li className="sidebarListItem">
@@ -48,14 +48,61 @@ export default function Sidebar() {
                   Users
                 </li>
               </Link>
-              <li className="sidebarListItem">
-                <AttachMoney className="sidebarIcon" />
-                Inventory
-              </li>
               <Link to="/newUser" className="link">
                 <li className="sidebarListItem">
                   <BarChart className="sidebarIcon" />
                   NewUser
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Store</h3>
+            <ul className="sidebarList">
+              <Link to="/stores" className="link">
+                <li className="sidebarListItem">
+                  <PermIdentity className="sidebarIcon" />
+                  Stores
+                </li>
+              </Link>
+              <Link to="/newStore" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  New Store
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Product</h3>
+            <ul className="sidebarList">
+              <Link to="/products" className="link">
+                <li className="sidebarListItem">
+                  <PermIdentity className="sidebarIcon" />
+                  Products
+                </li>
+              </Link>
+              <Link to="/newProduct" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  New Product
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Inventory</h3>
+            <ul className="sidebarList">
+              <Link to="/inventorys" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Inventors
+              </li>
+              </Link>
+              <Link to="/newInventory" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  New Inventor
                 </li>
               </Link>
             </ul>
@@ -69,7 +116,7 @@ export default function Sidebar() {
               </li>
               <li className="sidebarListItem">
                 <DynamicFeed className="sidebarIcon" />
-                Feedback
+                Attendance
               </li>
               <li className="sidebarListItem">
                 <ChatBubbleOutline className="sidebarIcon" />

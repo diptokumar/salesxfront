@@ -12,6 +12,9 @@ import ProductList from "./pages/productList/ProductList";
 import User from "./pages/user/User";
 import UserList from "./pages/userList/UserList";
 
+
+import StoreList from "./pages/storeList/StoreList";
+
 function App() {
   const { user } = useContext(AuthContext);
   
@@ -40,6 +43,10 @@ function App() {
           </Route>
           <Route path="/products">
             <ProductList />
+          </Route>
+          
+          <Route path="/newStore">
+            <NewStore />
           </Route>
           <Route path="/product/:productId">
             <Product />
