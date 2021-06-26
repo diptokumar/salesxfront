@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./topbar.css";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
+  const { user, dispatch } = useContext(AuthContext);
+
+  const logoutHandler = ()=>{
+    dispatch({ type: "LOG_OUT" });
+  }
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -10,7 +16,7 @@ export default function Topbar() {
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
-            <button>Logout</button>
+            <button onClick={logoutHandler}>{user && "LOGOUT"}</button>
           </div>
         </div>
       </div>
