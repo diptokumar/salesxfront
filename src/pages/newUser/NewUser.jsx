@@ -41,10 +41,58 @@ export default function NewUser() {
           </div>
         </div>
         <div className="newUserItem">
+          <label>officemail</label>
+          <input type="text" placeholder="Office mail" />
+        </div>
+        <div className="newUserItem">
+          <label>Area</label>
+          <input type="text" placeholder="Area" />
+        </div>
+        <div className="newUserItem">
+          <label>Teritory</label>
+          <input type="text" placeholder="teritory" />
+        </div>
+        <div className="newUserItem">
+          <label>Remarks</label>
+          <input type="text" placeholder="remarks" />
+        </div>
+        
+        <div className="newUserItem">
           <label>Active</label>
           <select className="newUserSelect" name="active" id="active">
             <option value="yes">Yes</option>
             <option value="no">No</option>
+          </select>
+        </div>
+        <div className="newUserItem">
+          <label>Type</label>
+          <select className="newUserSelect" name="active" id="active">
+            <option value="yes">Admin</option>
+            <option value="no">SEC</option>
+            <option value="no">SOM</option>
+            <option value="no">AM</option>
+            <option value="no">TSO</option>
+            <option value="no">LOGISTIC-M</option>
+            <option value="no">VM</option>
+            <option value="no">TRAINER</option>
+            <option value="no">MIS</option>
+          
+          </select>
+        </div>
+        <div className="newUserItem">
+          <label>Maneger</label>
+          <select className="newUserSelect" name="active" id="active">
+            <option value="yes">Siraj hassan</option>
+            <option value="no">rony halder</option>
+            <option value="no">joy bormon</option>          
+          </select>
+        </div>
+        <div className="newUserItem">
+          <label>store</label>
+          <select className="newUserSelect" name="active" id="active">
+            <option value="yes">E M store</option>
+            <option value="no">SM Electornic</option>
+            <option value="no">Walltone</option>          
           </select>
         </div>
         <button className="newUserButton">Create</button>
