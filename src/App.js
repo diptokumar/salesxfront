@@ -11,7 +11,8 @@ import Product from "./pages/product/Product";
 import ProductList from "./pages/productList/ProductList";
 import User from "./pages/user/User";
 import UserList from "./pages/userList/UserList";
-
+import NewStore from "./pages/newstore/NewStore.jsx";
+import StoreList from "./pages/storelist/storeList.jsx";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -26,6 +27,12 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/newStore">
+            <NewStore />
+          </Route>
+          <Route path="/store">
+            <StoreList />
           </Route>
           <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
           <Route path="/users">

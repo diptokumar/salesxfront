@@ -29,10 +29,18 @@ export default function Sidebar() {
                   Home
                 </li>
               </Link>
+              <Link to="/store" className="link">
               <li className="sidebarListItem">
                 <Timeline className="sidebarIcon" />
                 Store
               </li>
+              </Link>
+              <Link to="/newStore" className="link">
+                <li className="sidebarListItem active">
+                  <BarChart className="sidebarIcon" />
+                  NewStore
+                </li>
+              </Link>
               <li className="sidebarListItem">
                 <TrendingUp className="sidebarIcon" />
                 Product

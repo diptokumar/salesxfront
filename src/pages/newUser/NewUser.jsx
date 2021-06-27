@@ -1,89 +1,18 @@
-import './newUser.css';
-import React, {useState} from 'react';
-import axios from 'axios';
+import "./newUser.css";
+import "react-datepicker/dist/react-datepicker.css";
+
+import React, { useState } from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
 
 
-{/**
-
-name: {
-    type: String,
-    required: [true, 'Please tell us your name!']
-  },
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email']
-  },
-  photo: String,
-  dob: Date,
-  joiningdate: Date,
-  mobileno: {
-    type: String,
-  },
-  businessunit: {
-    type: String,
-    enum: ['CE_ups'],
-    default: 'CE_ups'
-  },
-  usertype: String,
-  officemail: String,
-  area: String,
-  teritory: String,
-  store: {
-    type: mongoose.Schema.ObjectId
-  },
-  lmid: String,
-  smid: String,
-  tlid: String,
-  salarytier: String,
-  remarks: String,
-  dayoff: String,
-  role: {
-    type: String,
-    enum: [
-      'SEC',
-      'SOM',
-      'AM',
-      'TSO',
-      'LOGISTIC-M',
-      'VM',
-      'TRAINER',
-      'MIS',
-      'admin'
-    ],
-    default: 'SEC'
-  },
-  workingstatus: {
-    type: String,
-    enum: ['active', 'inactive'],
-    default: 'active'
-  },
-  password: {
-    type: String,
-    required: [true, 'Please provide a password'],
-    minlength: 8,
-    select: false
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, 'Please confirm your password'],
-    validate: {
-      // This only works on CREATE and SAVE!!!
-      validator: function(el) {
-        return el === this.password;
-      },
-      message: 'Passwords are not the same!'
-    }
-  },*/}
 
 export default function NewUser() {
   const [name, setName] = useState("");
-  const [email,setEmail] = useState("");
-  //const [password,setPassword] = useState("");
-  const [dob, setDob] = useState("");
-  const [joiningdate, setDateofjoining] = useState("");
+  const [email, setEmail] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
+  const [dob, setDob] = useState(new Date());
+  const [joiningdate, setDateofjoining] = useState(new Date());
   const [mobileno, setMobile] = useState("");
   const [businessunit, setBusinessunit] = useState("");
   const [usertype, setuserType] = useState("");
@@ -92,45 +21,89 @@ export default function NewUser() {
   const [lmid, setLMid] = useState("");
   const [smid, setSmid] = useState("");
   const [tlid, setTlid] = useState("");
+  const [role, setRole] = useState("");
   const [workingstatus, setWorkingStatus] = useState("");
   const [salary, setSalary] = useState("");
   const [remark, setRemark] = useState("");
   const [password, setPassword] = useState("");
-  const [ passwordConfirm, setPasswordConfirm] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [officemail, setofficemail] = useState("");
-
 
   const onCreateUser = async (e) => {
     e.preventDefault();
     const user = {
-      name, email, password, mobileno, passwordConfirm, officemail, usertype, salary, lmid, area
+      name,
+      email,
+      password,
+      mobileno,
+      passwordConfirm,
+      officemail,
+      usertype,
+      salary,
+      lmid,
+      area,
+      role,
+      dob,
+      joiningdate,
+      employeeId,
+      businessunit,
+      remark
+
     };
-    await axios.post('https://salesx.herokuapp.com/api/v1/users/', user); 
-  }
-//ddddd
+    await axios.post("https://salesx.herokuapp.com/api/v1/users/", user);
+  };
+
   return (
     <div className="newUser">
       <h1 className="newUserTitle">New User</h1>
       <form className="newUserForm" onSubmit={onCreateUser}>
         <div className="newUserItem">
           <label>Username</label>
-          <input type="text" placeholder="john" onChange={e => setName(e.target.value)} />
+          <input
+            type="text"
+            placeholder="john"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="newUserItem">
+          <label>EmployeeID</label>
+          <input
+            type="text"
+            placeholder="EM034"
+            onChange={(e) => setEmployeeId(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Password</label>
-          <input type="password" placeholder="John Smith"  onChange={e => setPassword(e.target.value)} />
+          <input
+            type="password"
+            placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Email</label>
-          <input type="email" placeholder="john@gmail.com" onChange={e => setEmail(e.target.value)} />
+          <input
+            type="email"
+            placeholder="john@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Confirm Password</label>
-          <input type="password" placeholder="password" onChange={e => setPasswordConfirm(e.target.value)} />
+          <input
+            type="password"
+            placeholder="password"
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Phone</label>
-          <input type="text" placeholder="+1 123 456 78"  onChange={e => setMobile(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="+8801876121212"
+            onChange={(e) => setMobile(e.target.value)}
+          />
         </div>
         {/* <div className="newUserItem">
           <label>Address</label>
@@ -180,19 +153,51 @@ export default function NewUser() {
         </div> */}
         <div className="newUserItem">
           <label>officemail</label>
-          <input type="text" placeholder="Office mail" onChange={e => setofficemail(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="Office mail"
+            onChange={(e) => setofficemail(e.target.value)}
+          />
+        </div>
+        <div className="newUserItem">
+          <label>Salary Tier</label>
+          <input
+            type="text"
+            placeholder="Salary Tier"
+            onChange={(e) => setSalary(e.target.value)}
+          />
+        </div>
+        <div className="newUserItem">
+          <label>Date of Birth</label>
+          <DatePicker selected={dob} onChange={(date) => setDob(date)} />
+        </div>
+        <div className="newUserItem">
+          <label>Date of joining</label>
+          <DatePicker selected={joiningdate} onChange={(date) => setDateofjoining(date)} />
         </div>
         <div className="newUserItem">
           <label>Area</label>
-          <input type="text" placeholder="Area" onChange={e => setArea(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Area"
+            onChange={(e) => setArea(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Teritory</label>
-          <input type="text" placeholder="teritory" onChange={e => setTerritory(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="teritory"
+            onChange={(e) => setTerritory(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>Remarks</label>
-          <input type="text" placeholder="remarks" onChange={e => setTerritory(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="remarks"
+            onChange={(e) => setRemark(e.target.value)}
+          />
         </div>
         <div className="newUserItem">
           <label>officemail</label>
@@ -210,17 +215,26 @@ export default function NewUser() {
           <label>Remarks</label>
           <input type="text" placeholder="remarks" />
         </div>
-        
         <div className="newUserItem">
           <label>Active</label>
-          <select className="newUserSelect" name="active" id="active" onChange={e => setWorkingStatus(e.target.value)}     >
+          <select
+            className="newUserSelect"
+            name="active"
+            id="active"
+            onChange={(e) => setWorkingStatus(e.target.value)}
+          >
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
         </div>
         <div className="newUserItem">
           <label>Type</label>
-          <select className="newUserSelect" name="active" onChange={e=> setuserType(e.target.value)} id="active">
+          <select
+            className="newUserSelect"
+            name="active"
+            onChange={(e) => setRole(e.target.value)}
+            id="active"
+          >
             <option value="admin">Admin</option>
             <option value="SEC">SEC</option>
             <option value="SOM">SOM</option>
@@ -229,7 +243,23 @@ export default function NewUser() {
             <option value="LOGISTIC">LOGISTIC-M</option>
             <option value="VM">VM</option>
             <option value="TRAINER">TRAINER</option>
-            <option value="MIS">MIS</option>          
+            <option value="SM">SM</option>
+            <option value="OM">OM</option>
+            <option value="FOE">FOE</option>
+            <option value="MIS">MIS</option>
+          </select>
+        </div>
+        <div className="newUserItem">
+          <label>Businessunit</label>
+          <select
+            className="newUserSelect"
+            name="active"
+            onChange={(e) => setRole(e.target.value)}
+            id="active"
+          >
+            <option value="SEC_UNIT">Consultant Service</option>
+            <option value="CE_UNIT">Consumer Electornic</option>
+            <option value="VM">Visual Merchandising</option>
           </select>
         </div>
         <div className="newUserItem">
@@ -239,8 +269,11 @@ export default function NewUser() {
             <option value="no">rony halder</option>
             <option value="no">joy bormon</option>          
           </select> */}
-          <input type="text" placeholder="Manger" onChange={e => setSmid(e.target.value)}/>
-        
+          <input
+            type="text"
+            placeholder="Manger"
+            onChange={(e) => setSmid(e.target.value)}
+          />
         </div>
         {/* <div className="newUserItem">
           <select className="newUserSelect" name="active" id="active">
@@ -272,8 +305,9 @@ export default function NewUser() {
             <option value="no">Walltone</option>          
           </select>
         </div> */}
-        <button className="newUserButton" type="submit">Create</button>
-        
+        <button className="newUserButton" type="submit">
+          Create
+        </button>
       </form>
     </div>
   );
