@@ -16,6 +16,15 @@ export default function NewStore() {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   //inventory would be join
+  console.log(storename,
+    storeDmsCode,
+    location,
+    teritory,
+    area,
+    district,
+    division,
+    lat,
+    lon,);
   const onCreatestore = async (e) => {
     e.preventDefault();
     const store = {
@@ -26,12 +35,18 @@ export default function NewStore() {
       area,
       district,
       division,
-      cutoofftime,
       lat,
       lon,
     };
-   const res =  await axios.post("https://salesx.herokuapp.com/api/v1/stores/", store);
-   console.log(res.error);
+     await axios.post("http://salesx.herokuapp.com/api/v1/stores/", store).then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+   
   };
 
   return (
@@ -92,14 +107,6 @@ export default function NewStore() {
         </div>
 
         <div className="newUserItem">
-          <label>Teritory</label>
-          <input
-            type="text"
-            placeholder="teritory"
-            onChange={(e) => setTerritory(e.target.value)}
-          />
-        </div>
-        <div className="newUserItem">
           <label>division</label>
           <input
             type="text"
@@ -107,23 +114,13 @@ export default function NewStore() {
             onChange={(e) => setDivision(e.target.value)}
           />
         </div>
-        <div className="newUserItem">
-          <label>officemail</label>
-          <input type="text" placeholder="Office mail" />
-        </div>
-        <div className="newUserItem">
-          <label>Area</label>
-          <input type="text" placeholder="Area" />
-        </div>
-        <div className="newUserItem">
-          <label>Teritory</label>
-          <input type="text" placeholder="teritory" />
-        </div>
         
-        <div className="newUserItem">
+      
+        
+        {/* <div className="newUserItem">
             <label>Cut off Time</label> 
           <TimePicker onChange={setCutoftime} value={cutoofftime} />
-        </div>
+        </div> */}
 
         <div className="newUserItem">
           <label>Lat</label>
