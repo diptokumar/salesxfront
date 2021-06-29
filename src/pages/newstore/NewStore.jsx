@@ -1,35 +1,28 @@
-import "./newStore.css";
-import "react-datepicker/dist/react-datepicker.css";
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
+import "./newStore.css";
 
 export default function NewStore() {
   const [storename, setstorename] = useState("");
-  const [storeDmsCode, setstoreDmsCode] = useState("");
+  const [storedmscode, setstoreDmsCode] = useState("");
+  const [storetype, setStoretype] = useState("");
   const [location, setlocation] = useState("");
   const [teritory, setTerritory] = useState("");
   const [area, setArea] = useState("");
   const [district, setDistrict] = useState("");
   const [division, setDivision] = useState("");
-  const [cutoofftime, setCutoftime] = useState("");
+  const [cutofftime, setCutoftime] = useState("");
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   //inventory would be join
-  console.log(storename,
-    storeDmsCode,
-    location,
-    teritory,
-    area,
-    district,
-    division,
-    lat,
-    lon,);
   const onCreatestore = async (e) => {
     e.preventDefault();
     const store = {
       storename,
-      storeDmsCode,
+      storedmscode,
+      storetype,
       location,
       teritory,
       area,
@@ -38,15 +31,16 @@ export default function NewStore() {
       lat,
       lon,
     };
-     await axios.post("http://salesx.herokuapp.com/api/v1/stores/", store).then(function (response) {
-      // handle success
-      console.log(response);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-   
+    await axios
+      .post("https://salesx.herokuapp.com/api/v1/stores/", store)
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
   };
 
   return (
@@ -69,7 +63,14 @@ export default function NewStore() {
             onChange={(e) => setstoreDmsCode(e.target.value)}
           />
         </div>
-
+        <div className="newUserItem">
+          <label>Store Type</label>
+          <input
+            type="text"
+            placeholder="Store Type"
+            onChange={(e) => setStoretype(e.target.value)}
+          />
+        </div>
         <div className="newUserItem">
           <label>Location</label>
           <input
@@ -92,7 +93,7 @@ export default function NewStore() {
           <label>District</label>
           <input
             type="text"
-            placeholder="Office mail"
+            placeholder="District"
             onChange={(e) => setDistrict(e.target.value)}
           />
         </div>
@@ -110,29 +111,31 @@ export default function NewStore() {
           <label>division</label>
           <input
             type="text"
-            placeholder="remarks"
+            placeholder="Division"
             onChange={(e) => setDivision(e.target.value)}
           />
         </div>
-        
-      
-        
-        {/* <div className="newUserItem">
-            <label>Cut off Time</label> 
-          <TimePicker onChange={setCutoftime} value={cutoofftime} />
-        </div> */}
+
+        <div className="newUserItem">
+          <label>Cut off Time</label>
+          <TimePicker onChange={setCutoftime} value={cutofftime} />
+        </div>
 
         <div className="newUserItem">
           <label>Lat</label>
           <input
             type="text"
-            placeholder="Manger"
+            placeholder="Lat"
             onChange={(e) => setLat(e.target.value)}
           />
         </div>
         <div className="newUserItem">
           <label>Lon</label>
-          <input type="text" placeholder="remarks" onChange={(e)=> setLon(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Lon"
+            onChange={(e) => setLon(e.target.value)}
+          />
         </div>
         <button className="newUserButton" type="submit">
           Create Store

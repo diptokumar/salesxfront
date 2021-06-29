@@ -6,13 +6,13 @@ import { AuthContext } from "./context/AuthContext";
 import Home from "./pages/home/Home";
 import Login from "./pages/loginPage/LoginFrom";
 import NewProduct from "./pages/newProduct/NewProduct";
+import NewStore from "./pages/newstore/NewStore.jsx";
 import NewUser from "./pages/newUser/NewUser";
 import Product from "./pages/product/Product";
 import ProductList from "./pages/productList/ProductList";
+import StoreList from "./pages/storelist/storeList.jsx";
 import User from "./pages/user/User";
 import UserList from "./pages/userList/UserList";
-import NewStore from "./pages/newstore/NewStore.jsx";
-import StoreList from "./pages/storelist/storeList.jsx";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -46,10 +46,6 @@ function App() {
           </Route>
           <Route path="/products">
             <ProductList />
-          </Route>
-        
-          <Route path="/new">
-            <NewProduct />
           </Route>
           <Route path="/product/:productId">
             <Product />

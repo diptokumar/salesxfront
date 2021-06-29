@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import './product.css';
-import Chart from '../../components/chart/Chart';
-import { productData } from '../../dummyData';
-import { Publish } from '@material-ui/icons';
+import { Publish } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+import Chart from "../../components/chart/Chart";
+import { productData } from "../../dummyData";
+import "./product.css";
 
 export default function Product() {
   return (
@@ -72,7 +72,7 @@ export default function Product() {
               <label for="file">
                 <Publish />
               </label>
-              <input type="file" id="file" style={{ display: 'none' }} />
+              <input type="file" id="file" style={{ display: "none" }} />
             </div>
             <button className="productButton">Update</button>
           </div>

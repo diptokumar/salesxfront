@@ -30,10 +30,10 @@ export default function Sidebar() {
                 </li>
               </Link>
               <Link to="/store" className="link">
-              <li className="sidebarListItem">
-                <Timeline className="sidebarIcon" />
-                Store
-              </li>
+                <li className="sidebarListItem">
+                  <Timeline className="sidebarIcon" />
+                  Store
+                </li>
               </Link>
               <Link to="/newStore" className="link">
                 <li className="sidebarListItem active">
@@ -90,7 +90,7 @@ export default function Sidebar() {
                   Products
                 </li>
               </Link>
-              <Link to="/newProduct" className="link">
+              <Link to="/newproduct" className="link">
                 <li className="sidebarListItem">
                   <BarChart className="sidebarIcon" />
                   New Product
@@ -102,10 +102,10 @@ export default function Sidebar() {
             <h3 className="sidebarTitle">Inventory</h3>
             <ul className="sidebarList">
               <Link to="/inventorys" className="link">
-              <li className="sidebarListItem">
-                <AttachMoney className="sidebarIcon" />
-                Inventors
-              </li>
+                <li className="sidebarListItem">
+                  <AttachMoney className="sidebarIcon" />
+                  Inventors
+                </li>
               </Link>
               <Link to="/newInventory" className="link">
                 <li className="sidebarListItem">
