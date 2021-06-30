@@ -14,8 +14,8 @@ export default function StoreList() {
       const res = await axios.get(
         "https://salesx.herokuapp.com/api/v1/stores/"
       );
-      console.log(res.data.data.store);
-      setData(res.data.data.store);
+      console.log(res.data.stores);
+      setData(res.data.stores);
     };
     fetchUsers();
   }, []);

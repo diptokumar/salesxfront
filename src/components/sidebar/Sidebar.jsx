@@ -8,7 +8,6 @@ import {
   PermIdentity,
   Report,
   Timeline,
-  TrendingUp,
   WorkOutline,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
@@ -24,27 +23,11 @@ export default function Sidebar() {
             <h3 className="sidebarTitle">Dashboard</h3>
             <ul className="sidebarList">
               <Link to="/" className="link">
-                <li className="sidebarListItem active">
+                <li className="sidebarListItem">
                   <LineStyle className="sidebarIcon" />
                   Home
                 </li>
               </Link>
-              <Link to="/store" className="link">
-                <li className="sidebarListItem">
-                  <Timeline className="sidebarIcon" />
-                  Store
-                </li>
-              </Link>
-              <Link to="/newStore" className="link">
-                <li className="sidebarListItem active">
-                  <BarChart className="sidebarIcon" />
-                  NewStore
-                </li>
-              </Link>
-              <li className="sidebarListItem">
-                <TrendingUp className="sidebarIcon" />
-                Product
-              </li>
             </ul>
           </div>
           <div className="sidebarMenu">
@@ -67,16 +50,16 @@ export default function Sidebar() {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Store</h3>
             <ul className="sidebarList">
-              <Link to="/stores" className="link">
+              <Link to="/store" className="link">
                 <li className="sidebarListItem">
-                  <PermIdentity className="sidebarIcon" />
-                  Stores
+                  <Timeline className="sidebarIcon" />
+                  Store
                 </li>
               </Link>
               <Link to="/newStore" className="link">
                 <li className="sidebarListItem">
                   <BarChart className="sidebarIcon" />
-                  New Store
+                  NewStore
                 </li>
               </Link>
             </ul>
@@ -99,22 +82,51 @@ export default function Sidebar() {
             </ul>
           </div>
           <div className="sidebarMenu">
-            <h3 className="sidebarTitle">Inventory</h3>
+            <h3 className="sidebarTitle">Sales</h3>
             <ul className="sidebarList">
-              <Link to="/inventorys" className="link">
+              <Link to="/sales" className="link">
                 <li className="sidebarListItem">
                   <AttachMoney className="sidebarIcon" />
-                  Inventors
+                  Sales
                 </li>
               </Link>
-              <Link to="/newInventory" className="link">
+              <Link to="/salestarget" className="link">
                 <li className="sidebarListItem">
-                  <BarChart className="sidebarIcon" />
-                  New Inventor
+                  <AttachMoney className="sidebarIcon" />
+                  Salestarget
                 </li>
               </Link>
             </ul>
           </div>
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Survey</h3>
+            <ul className="sidebarList">
+              <Link to="/survey" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  Survey
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Compititive Product</h3>
+            <ul className="sidebarList">
+              <Link to="/competitiveprod" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  Compititive Product
+                </li>
+              </Link>
+              <Link to="/newcompetitiveprod" className="link">
+                <li className="sidebarListItem">
+                  <BarChart className="sidebarIcon" />
+                  New Compititive Product
+                </li>
+              </Link>
+            </ul>
+          </div>
+
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Notifications</h3>
             <ul className="sidebarList">
