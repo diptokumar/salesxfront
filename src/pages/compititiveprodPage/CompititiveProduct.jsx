@@ -24,7 +24,7 @@ export default function StoreList() {
   const columns = [
     // { field: "_id", headerName: "ID", width: 90 },
     {
-      field: "product",
+      field: "brand",
       headerName: "Brand",
       width: 200,
     },
